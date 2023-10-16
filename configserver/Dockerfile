@@ -6,7 +6,7 @@ FROM openjdk:17 as build
 LABEL maintainer="Illary Huaylupo <illaryhs@gmail.com>"
 
 # The application's jar file
-ARG JAR_FILE=target/licensing-service-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE
 
 # Add the application's jar to the container
 COPY ${JAR_FILE} app.jar
@@ -28,4 +28,4 @@ COPY --from=build ${DEPENDENCY}/META-INF /app/META-INF
 COPY --from=build ${DEPENDENCY}/BOOT-INF/classes /app
 
 #execute the application
-ENTRYPOINT ["java","-cp","app:app/lib/*","com.optimagrowth.license.LicenseServiceApplication"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.optimagrowth.configserver.ConfigurationServerApplication"]

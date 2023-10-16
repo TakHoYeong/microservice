@@ -1,8 +1,9 @@
 spring:
   application:
    name: licensing-service
-  profiles:
+   profiles:
     active: dev
   cloud:
       config:
           uri: http://configserver:8071
+
